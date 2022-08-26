@@ -3,6 +3,7 @@
 ![Java Practice - LeetCode](java-leetcode.png)
 
 ### Difficulty: Easy
+[1. Two Sum](https://github.com/kotler-dev/java-leetcode/blob/master/src/test/java/dev/kotler/problemset/easy/task100/TwoSumTest.java)  
 [9. Palindrome Number](https://github.com/kotler-dev/java-leetcode/blob/master/src/test/java/dev/kotler/problemset/easy/task100/PalindromeNumberTest.java)  
 [13. Roman to Integer](https://github.com/kotler-dev/java-leetcode/blob/master/src/test/java/dev/kotler/problemset/easy/task100/RomanToIntegerTest.java)  
 [14. Longest Common Prefix](https://github.com/kotler-dev/java-leetcode/blob/master/src/test/java/dev/kotler/problemset/easy/task100/LongestCommonPrefixTest.java)  
