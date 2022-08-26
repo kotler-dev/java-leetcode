@@ -39,7 +39,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PalindromeNumberTest {
 
-    public static Stream<Arguments> isPalindromeArgs() {
+    public static Stream<Arguments> isPalindromeValueTest() {
         return Stream.of(
                 Arguments.of(true, 121),
                 Arguments.of(true, 1001),
@@ -49,7 +49,7 @@ class PalindromeNumberTest {
     }
 
     @ParameterizedTest
-    @MethodSource("isPalindromeArgs")
+    @MethodSource("isPalindromeValueTest")
     void isPalindromeTest(Boolean tf, int num) {
         assertEquals(tf, isPalindrome(num));
     }
