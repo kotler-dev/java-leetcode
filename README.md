@@ -1,5 +1,7 @@
 ## Java Practice - LeetCode
 
+![Java Practice - LeetCode](java-leetcode.png)
+
 ### Difficulty: Easy
 [9. Palindrome Number](https://github.com/kotler-dev/java-leetcode/blob/master/src/test/java/dev/kotler/problemset/easy/task100/PalindromeNumberTest.java)  
 [14. Longest Common Prefix](https://github.com/kotler-dev/java-leetcode/blob/master/src/test/java/dev/kotler/problemset/easy/task100/LongestCommonPrefixTest.java)  
