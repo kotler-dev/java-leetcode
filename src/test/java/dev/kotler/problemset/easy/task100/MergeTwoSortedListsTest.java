@@ -72,7 +72,7 @@ class ListNode {
 }
 
 class MergeTwoSortedListsTest {
-    private static Stream<Arguments> mergeTwoListsTest() {
+    private static Stream<Arguments> mergeTwoListsArgs() {
         return Stream.of(
                 Arguments.of(
                         "[1, [1, [2, [3, [4, [4, null]]]]]]",
@@ -88,7 +88,7 @@ class MergeTwoSortedListsTest {
     }
 
     @ParameterizedTest
-    @MethodSource("mergeTwoListsTest")
+    @MethodSource("mergeTwoListsArgs")
     void isMergeTwoListsTest(String listNode, ListNode list1, ListNode list2) {
         ListNode node = mergeTwoLists(list1, list2);
         assertEquals(listNode, node.toString());
