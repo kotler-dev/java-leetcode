@@ -79,8 +79,6 @@ public class MergeSortedArrayTest {
         }
 
         Arrays.sort(nums1);
-        System.out.print(result[0] + " -> ");
-        System.out.println(Arrays.toString(nums1));
         Assertions.assertArrayEquals(result, nums1);
     }
 }
