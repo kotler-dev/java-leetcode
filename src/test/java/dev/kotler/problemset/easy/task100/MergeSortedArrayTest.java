@@ -64,80 +64,19 @@ public class MergeSortedArrayTest {
                 Arguments.of(new int[]{1}, new int[]{1}, 1, new int[]{}, 0),
                 Arguments.of(new int[]{1, 2, 3, 4, 5}, new int[]{0, 0, 0, 0, 0}, 0, new int[]{1, 2, 3, 4, 5}, 5),
                 Arguments.of(new int[]{1}, new int[]{0}, 0, new int[]{1}, 1),
-                Arguments.of(new int[]{1}, new int[]{0,0,3,0,0,0,0,0,0}, 3, new int[]{-1,1,1,1,2,3}, 6)
+                Arguments.of(new int[]{-1, 0, 0, 1, 1, 1, 2, 3, 3}, new int[]{0, 0, 3, 0, 0, 0, 0, 0, 0}, 3, new int[]{-1, 1, 1, 1, 2, 3}, 6)
         );
     }
-
-    /*
-
-[1]
-1
-[]
-0
-
-[0]
-0
-[1]
-1
-     */
 
     @ParameterizedTest
     @MethodSource("mergeSortedArrayArgs")
     void merge(int[] result, int[] nums1, int m, int[] nums2, int n) {
 
-        System.out.println(nums1.length);
-////        nums1.length == m + n
-////        nums2.length == n
-////        0 <= m, n <= 200
-////        1 <= m + n <= 200
-
-
-
-//        if (m - 1 >= 0) {
-//            nums1 = nums2;
-//            m = n;
-//        } else if (n - 1 >= 0) {
-//            nums2 = nums1;
-//            n = m;
-//        } else {
-//            for (int i = m + n - 1; i >= m; i--) {
-//                nums1[i] = nums2[i - n];
-//            }
-//        }
-
-//        if (m >= 1 && n >= 1) {
-//            System.arraycopy(nums2, m - n, nums1, m, m + n - m);
-//        } else if (n - 1 >= 0) {
-//            nums1[0] = nums2[0];
-//        }
-
-//        (m == 0) || (n == 0) ?
-//
-//        if (m == 0) {
-//            nums1 = nums2;
-//            m = n;
-//        }
-//
-//        if (n == 0) {
-//            nums2 = nums1;
-//            n = m;
-//        }
-//
-//        System.out.println("m-> " + m + " n-> " + n);
-//
-
-//
-//        if (m + n -  1 > 0 && m > 0 & n > 0) {
-//            if (nums1[m - 1] >= nums2[n - 1]) {
-//                System.arraycopy(nums2, m - n, nums1, m, m + n - m);
-//            } else {
-//                System.arraycopy(nums1, m - n, nums2, m, n);
-//            }
-//        }
-
-//        for (int i = m + n - 1; i >= m; i--) {
-//            nums1[i] = nums1[i] >= nums2[n - 1] ? nums1[m-- - 1] : nums2[n-- - 1];
-//        }
+        if (m >= 1 && n >= 1) {
+            System.arraycopy(nums2, 0, nums1, nums1.length - n, nums2.length);
+        } else {
+            System.arraycopy(nums2, 0, nums1, 0, nums2.length);
+        }
 
         Arrays.sort(nums1);
         System.out.print(result[0] + " -> ");
