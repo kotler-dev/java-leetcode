@@ -44,20 +44,15 @@ class TreeNode {
     Integer val;
     TreeNode left;
     TreeNode right;
-    TreeNode next;
 
     TreeNode() {
-    }
-
-    TreeNode(TreeNode next) {
-        this.next = next;
     }
 
     TreeNode(Integer val) {
         this.val = val;
     }
 
-    TreeNode(int val, TreeNode left, TreeNode right) {
+    TreeNode(Integer val, TreeNode left, TreeNode right) {
         this.val = val;
         this.left = left;
         this.right = right;
@@ -66,33 +61,35 @@ class TreeNode {
 
 public class BinaryTreeInorderTraversalTest {
 
-    public Stream<Arguments> inorderTraversalArgs() {
-        TreeNode node1 = new TreeNode(1);
-        TreeNode node2 = new TreeNode(2);
-        TreeNode node3 = new TreeNode(3);
-        TreeNode node4 = new TreeNode(4);
-        TreeNode node5 = new TreeNode(5);
-        TreeNode node6 = new TreeNode(6);
+    static TreeNode root = new TreeNode();
+    List<Integer> listNode = new ArrayList<>();
+    static int size = 0;
 
-        node1.left = node2;
-        node2.left = node3;
-        node2.right = node4;
-        node1.right = node5;
-        node5.right = node6;
+    public static Stream<Arguments> inorderTraversalArgs() {
+        List<Integer> nodes1 = new ArrayList<>();
+        nodes1.add(1);
+        nodes1.add(null);
+        nodes1.add(2);
+        nodes1.add(3);
+
+        List<Integer> nodes2 = new ArrayList<>();
+        nodes2.add(1);
+
+        List<Integer> nodes3 = new ArrayList<>();
+        nodes3.add(null);
+
         return Stream.of(
-//                Arguments.of(List.of(1, 3, 2), List.of(1, null, 2, 3)),
-//                Arguments.of(List.of(1, 3, 2), new TreeNode[1]),
-                Arguments.of(Arrays.asList(1, 2, 3), new TreeNode(node1))
-//                Arguments.of(List.of(), new TreeNode[]{})
+                Arguments.of(Arrays.asList(1, 2, 3), initTreeNode(nodes1)),
+                Arguments.of(List.of(1), initTreeNode(nodes2)),
+                Arguments.of(nodes3, initTreeNode(nodes3))
         );
     }
 
-    List<Integer> listNode = new ArrayList<>();
 
     @ParameterizedTest
     @MethodSource("inorderTraversalArgs")
-    void result(List<Integer> listData, TreeNode root) {
-        var r = inorderTraversalTest(root);
+    void result(List<Integer> listData, TreeNode m) {
+        var r = inorderTraversalTest(m);
         assertEquals(listData, r);
     }
 
@@ -107,5 +104,49 @@ public class BinaryTreeInorderTraversalTest {
     public List<Integer> inorderTraversalTest(TreeNode root) {
         inorder(root);
         return listNode;
+    }
+
+    public static TreeNode initTreeNode(List<Integer> nodes) {
+        root = new TreeNode();
+
+        for (Integer node : nodes) {
+            insert(node);
+        }
+        return root;
+    }
+
+    static TreeNode node;
+
+    public static void insert(Integer elem) {
+        if (elem == null) {
+            return;
+        }
+        if (root.val == null) {
+            root = new TreeNode(elem);
+            node = root;
+            return;
+        }
+
+        while (true) {
+            if (elem > 0) {
+                if (node.right == null) {
+                    node.right = new TreeNode(elem);
+                    size++;
+                    break;
+                } else {
+                    node = node.right;
+                }
+            } else if (node.val == 0) {
+                return;
+            } else {
+                if (node.left == null) {
+                    node.left = new TreeNode(elem);
+                    size++;
+                    break;
+                } else {
+                    node = node.left;
+                }
+            }
+        }
     }
 }
