@@ -38,20 +38,20 @@ The number of nodes in the list is the range [0, 5000].
  * }
  */
 
-public class ReverseLinkedList {
-    public ListNode reverseList(ListNode head) {
-        ListNode cur = head;
-        ListNode prev = head;
-        while (cur != null) {
-            ListNode next = cur.next;
-            if (cur == head) {
-                cur.next = null;
-            } else {
-                cur.next = prev;
-            }
-            prev = cur;
-            cur = next;
-        }
-        return prev;
-    }
-}
+//public class ReverseLinkedList {
+//    public ListNode reverseList(ListNode head) {
+//        ListNode cur = head;
+//        ListNode prev = head;
+//        while (cur != null) {
+//            ListNode next = cur.next;
+//            if (cur == head) {
+//                cur.next = null;
+//            } else {
+//                cur.next = prev;
+//            }
+//            prev = cur;
+//            cur = next;
+//        }
+//        return prev;
+//    }
+//}
