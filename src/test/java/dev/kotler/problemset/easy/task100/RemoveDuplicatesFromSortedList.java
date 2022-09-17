@@ -24,19 +24,10 @@ The list is guaranteed to be sorted in ascending order.
 
 */
 
-import java.util.*;
-
 // Definition for singly-linked list.
 class ListNodeWithDuplicates {
     int val;
     ListNodeWithDuplicates next;
-
-    ListNodeWithDuplicates() {
-    }
-
-    ListNodeWithDuplicates(int val) {
-        this.val = val;
-    }
 
     ListNodeWithDuplicates(int val, ListNodeWithDuplicates next) {
         this.val = val;
@@ -45,13 +36,12 @@ class ListNodeWithDuplicates {
 
     @Override
     public String toString() {
-        return "ListNodeWithDuplicates{" +
-                "val=" + val +
-                ", next=" + next +
-                '}';
+        return "ListNodeWithDuplicates{" + "val=" + val + ", next=" + next + '}';
     }
 }
 
+// Solution 1
+/*
 public class RemoveDuplicatesFromSortedList {
     public static ListNodeWithDuplicates deleteDuplicates(ListNodeWithDuplicates head) {
         Iterable<ListNodeWithDuplicates> data = Collections.singleton(head);
@@ -72,5 +62,38 @@ public class RemoveDuplicatesFromSortedList {
             }
         }
         System.out.println(collection);
+    }
+}
+*/
+
+// Solution 2
+public class RemoveDuplicatesFromSortedList {
+    public static ListNodeWithDuplicates deleteDuplicates(ListNodeWithDuplicates head) {
+
+        ListNodeWithDuplicates last = head;
+        ListNodeWithDuplicates current = head.next;
+
+        while (current != null) {
+            if (last.val == current.val) {
+                last.next = current.next;
+            } else {
+                last = current;
+            }
+            current = current.next;
+        }
+
+        return head;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(
+                deleteDuplicates(
+                        new ListNodeWithDuplicates(
+                                1, new ListNodeWithDuplicates(
+                                2, new ListNodeWithDuplicates(
+                                2, new ListNodeWithDuplicates(
+                                3, new ListNodeWithDuplicates(
+                                3, null
+                        )))))));
     }
 }
