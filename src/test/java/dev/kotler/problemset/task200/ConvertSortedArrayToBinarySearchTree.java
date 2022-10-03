@@ -27,39 +27,19 @@ nums is sorted in a strictly increasing order.
 */
 
 //Definition for a binary tree node.
-class CSATreeNode {
-    int val;
-    CSATreeNode left;
-    CSATreeNode right;
-
-    CSATreeNode() {
-    }
-
-    CSATreeNode(int val) {
-        this.val = val;
-    }
-
-    CSATreeNode(int val, CSATreeNode left, CSATreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
 
 public class ConvertSortedArrayToBinarySearchTree {
-
-    public CSATreeNode buildTree ( int[] nums, int start, int end){
+    public TreeNode buildTree(int[] nums, int start, int end) {
         if (end + 1 - start < 1) return null;
         int mid = (start + end) / 2;
-        CSATreeNode root = new CSATreeNode(nums[mid]);
+        TreeNode root = new TreeNode(nums[mid]);
         root.left = buildTree(nums, start, mid - 1);
         root.right = buildTree(nums, mid + 1, end);
         return root;
     }
 
-    public CSATreeNode sortedArrayToBST(int[] nums) {
+    public TreeNode sortedArrayToBST(int[] nums) {
         if (nums.length == 0) return null;
-        CSATreeNode root = buildTree(nums, 0, nums.length - 1);
-        return root;
+        return buildTree(nums, 0, nums.length - 1);
     }
 }

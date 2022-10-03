@@ -20,33 +20,15 @@ The number of nodes in the tree is in the range [1, 1000].
 */
 
 //Definition for a binary tree node.
-class TreeNode {
-    int val;
-    CSATreeNode left;
-    CSATreeNode right;
-
-    TreeNode() {
-    }
-
-    TreeNode(int val) {
-        this.val = val;
-    }
-
-    TreeNode(int val, CSATreeNode left, CSATreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
 
 public class SymmetricTree {
-    public boolean isSymmetric(CSATreeNode root) {
+    public boolean isSymmetric(TreeNode root) {
         if (root == null)
             return true;
         return Helper(root.left, root.right);
     }
 
-    boolean Helper(CSATreeNode left, CSATreeNode right) {
+    boolean Helper(TreeNode left, TreeNode right) {
         if (left == null && right == null) {
             return true;
         } else if (left == null || right == null) {
