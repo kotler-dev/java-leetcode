@@ -2,7 +2,7 @@
 
 ![Java Practice - LeetCode](java-leetcode.png)
 
-[Problemset](https://github.com/kotler-dev/java-leetcode/blob/master/src/test/java/dev/kotler/problemset/easy/) - including problem statement and solution.  
+[Problemset](https://github.com/kotler-dev/java-leetcode/blob/master/src/test/java/dev/kotler/problemset/) - including problem statement and solution.  
 
 [//]: # ([1. Two Sum]&#40;https://github.com/kotler-dev/java-leetcode/blob/master/src/test/java/dev/kotler/problemset/easy/task100/TwoSumTest.java&#41;  )
 [//]: # ([9. Palindrome Number]&#40;https://github.com/kotler-dev/java-leetcode/blob/master/src/test/java/dev/kotler/problemset/easy/task100/PalindromeNumberTest.java&#41;  )
